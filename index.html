@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>persik</title>
+    <link rel="stylesheet" href="C:\Users\diana\OneDrive\Рабочий стол\Site\css\styles.css">
+
+    </head>
+  <body>
+    <h1>Это личный сайт кота Персика</h1>
+    <a href="index.html" > <button type="button" name="button" class="button mainbutton">На главную</button></a>
+    <h2>Click on the image to see my friends!</h2>
+
+  
+
+  <div class="pictureCAT">
+  <img  src="C:\Users\diana\OneDrive\Рабочий стол\Site\img\persik.jpg" alt="" id="imgClickAndChange" onclick="changeImage()" >
+  </div>
+
+
+<script type="text/javascript">
+
+
+  function changeImage() {
+    const Http = new XMLHttpRequest();
+    const url='https://api.thecatapi.com/v1/images/search';
+    Http.open("GET", url);
+    Http.send();
+
+    Http.onreadystatechange = (e) => {
+    let urlim = ((eval(Http.responseText))[0])["url"];
+    document.getElementById("imgClickAndChange").src = urlim;
+    }}
+
+
+
+
+
+</script>
+  </body>
+</html>
